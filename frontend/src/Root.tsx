@@ -1,12 +1,12 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-function App() {
+const Root = (): JSX.Element => {
   return (
-    <div className="App">
+    <div className="Root">
       <Outlet />
     </div>
   );
 }
 
-export default App;
+export default Root;
