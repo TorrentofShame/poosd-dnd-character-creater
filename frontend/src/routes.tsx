@@ -12,7 +12,10 @@ import App from './App';
 import RequireAuth from './atoms/RequireAuth';
 import Dashboard from './pages/Dashboard';
 import HomePage from './pages/HomePage';
-import {signupAction, loginAction} from './actions';
+import {signupAction, loginAction, createCharacter} from './actions';
+import { characterLoader, dashboardLoader } from './loaders';
+import CharacterPage from './pages/CharacterPage';
+import EditCharacterPage from './pages/EditCharacterPage';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -44,7 +47,18 @@ export const router = createBrowserRouter(
         <Route errorElement={<ErrorPage />}>
           <Route
             index
+            loader={dashboardLoader}
+            action={createCharacter}
             element={<Dashboard />}
+          />
+          <Route
+            path='characters/:characterId'
+            loader={characterLoader}
+            element={<CharacterPage />}
+          />
+          <Route
+            path='characters/:characterId/edit'
+            element={<EditCharacterPage />}
           />
         </Route>
       </Route>
