@@ -12,7 +12,7 @@ import App from './App';
 import RequireAuth from './atoms/RequireAuth';
 import Dashboard from './pages/Dashboard';
 import HomePage from './pages/HomePage';
-import {signupAction, loginAction, createCharacter} from './actions';
+import {signupAction, loginAction, createCharacter, editAction} from './actions';
 import { characterLoader, dashboardLoader } from './loaders';
 import CharacterPage from './pages/CharacterPage';
 import EditCharacterPage from './pages/EditCharacterPage';
@@ -58,6 +58,8 @@ export const router = createBrowserRouter(
           />
           <Route
             path='characters/:characterId/edit'
+            loader={characterLoader}
+            action={editAction}
             element={<EditCharacterPage />}
           />
         </Route>

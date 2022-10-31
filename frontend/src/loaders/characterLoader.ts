@@ -12,7 +12,7 @@ const dummyData = {
   },
   '2': {
     id: '2',
-    name: 'foobar Dos',
+    name: 'foobar Dos', 
     alignment: 'chaotic evil',
     raceName: 'tabaxi',
     className: 'rouge',
