@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "dev": "turbo run dev"
+  },
+  "workspaces": [
+    "packages/*",
+    "frontend"
+  ],
+  "devDependencies": {
+    "turbo": "^1.6.2"
+  }
+}
