@@ -1,5 +1,6 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import { Button } from 'semantic-ui-react';
 import CharacterCard, { CharacterCardProps } from '../molecules/CharacterCard';
 
 const CharacterPage = (): JSX.Element => {
