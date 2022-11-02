@@ -7,8 +7,11 @@ const CharacterPage = (): JSX.Element => {
 
   return (
     <div>
-      <CharacterCard {...character} />
-    </div>
+    {Object.entries(character).map(([k,v]) => {
+        return <div>{k} : {v}</div>
+      })
+    }
+  </div>
   );
 };
 
