@@ -32,4 +32,10 @@ public class Character {
     public int getId(){
         return id;
     }
+    public void setCharacter(Character character){
+        if(character.getName()!="") name = character.getName();
+        if(character.getAlignment()!="") alignment = character.getAlignment();
+        if(character.getRaceName()!="") raceName = character.getRaceName();
+        if(character.getClassName()!="") className = character.getClassName();
+    } 
 }

@@ -35,11 +35,10 @@ public class User {
     public String editCharacter(Character character){
         int id = character.getId(); //id of character that is being replaced
         for(int i=0;i<characters.size();i++){
-            final Character currentCharacter = characters.get(i);
+            Character currentCharacter = characters.get(i);
             if(id==currentCharacter.getId()){
                 System.out.println(currentCharacter.getId());
-                characters.remove(i); 
-                characters.add(character);
+                currentCharacter.setCharacter(character);
                 return "change made";
             }
         }
