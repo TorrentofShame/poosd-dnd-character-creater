@@ -5,7 +5,7 @@ import { Card, Image } from 'semantic-ui-react';
 // WIP: Change types to what they should be based on api!!!
 export type CharacterCardProps = {
   image?: string;
-  id: string;
+  id: number;
   name: string;
   alignment: string;
   raceName: string;

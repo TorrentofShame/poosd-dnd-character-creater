@@ -1,29 +1,35 @@
 import { LoaderFunctionArgs } from "react-router-dom";
 import { CharacterCardProps } from "../molecules/CharacterCard";
 
-const dummyData = {  
-  '1': {
-    id: '1',
-    name: 'foobar',
-    alignment: 'chaotic neutral',
-    raceName: 'human',
-    className: 'fighter',
-    description: 'foobar',
-  },
-  '2': {
-    id: '2',
-    name: 'foobar Dos', 
-    alignment: 'chaotic evil',
-    raceName: 'tabaxi',
-    className: 'rouge',
-  }
-};
-
 // WIP: use api??
 const characterLoader = async ({params, request}: LoaderFunctionArgs): Promise<CharacterCardProps> => {
-  const {characterId} = params as {characterId: CharacterCardProps['id']};
+  let data : any[] = [];
 
-  return dummyData[characterId as keyof typeof dummyData];
+  var myHeaders = new Headers();
+  const user = localStorage.getItem("id");
+  const password = localStorage.getItem("password"); 
+  if(user!=null&&password!=null){
+    myHeaders.append("id", user);
+    myHeaders.append("password", password);
+    var requestOptions : any = {
+      method: 'GET',
+      headers: myHeaders,
+    };
+    
+    await fetch("http://localhost:8080/characters", requestOptions)
+      .then(response => response.text())
+      .then(result => {
+        data = JSON.parse(result);
+      })
+      .catch(error => console.log('error', error));
+  }
+  var val = 1;
+  const {characterId} = params as {characterId: string};
+  if(typeof characterId =="string"){
+    val = parseInt(characterId);
+  }
+  const sel : CharacterCardProps = data.find(character => character.id == val);
+  return sel;
 };
 
 export default characterLoader;

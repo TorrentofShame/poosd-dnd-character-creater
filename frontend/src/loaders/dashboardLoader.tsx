@@ -3,23 +3,30 @@ import { CharacterCardProps } from "../molecules/CharacterCard";
 
 // WIP: use api??
 const dashboardLoader = async ({params, request}: LoaderFunctionArgs): Promise<CharacterCardProps[]> => {
-  return [
-    {
-      id: '1',
-      name: 'foobar',
-      alignment: 'chaotic neutral',
-      raceName: 'human',
-      className: 'fighter',
-      description: 'foobar',
-    },
-    {
-      id: '2',
-      name: 'foobar Dos',
-      alignment: 'chaotic evil',
-      raceName: 'tabaxi',
-      className: 'rouge',
-    }
-  ];
+  const user = localStorage.getItem("id");
+  const password = localStorage.getItem("password");
+  var data : CharacterCardProps[] = []
+  var myHeaders = new Headers();
+  if(user!=null&&password!=null){
+    myHeaders.append("id", user);
+    myHeaders.append("password", password);
+    var requestOptions : any = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    };
+  
+    await fetch("http://localhost:8080/characters", requestOptions)
+      .then(response => response.text())
+      .then(result => {
+        console.log(result);
+        //localStorage.setItem("characters",JSON.stringify(result));
+        data = JSON.parse(result);
+      })
+      .catch(error => console.log('error', error));
+  }
+  return data;
 };
 
 export default dashboardLoader;
+
