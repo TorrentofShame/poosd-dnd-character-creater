@@ -6,16 +6,23 @@ public class Character {
     private String alignment;
     private String raceName;
     private String className;
+    private String image;
+    private String description;
     //add character components here
     public Character(String name, int id){
         this.name = name;
         this.id = id;
-        alignment = "chaotic evil";
-        raceName = "tabaxi";
-        className = "rogue";
+        this.alignment = "chaotic evil";
+        this.raceName = "apeling";
+        this.className = "rogue";
+        this.image = "https://discovery.sndimg.com/content/dam/images/discovery/fullset/2021/4/30/GettyImages-1189192456.jpg.rend.hgtvcom.406.406.suffix/1619849704543.jpeg";
+        this.description = "monkey denied his bannana";
     }
     public Character(){
 
+    }
+    public String getImage(){
+        return image;
     }
     public String getName(){
         return name;
@@ -32,10 +39,16 @@ public class Character {
     public int getId(){
         return id;
     }
+    public String getDescription(){
+        return description;
+    }
     public void setCharacter(Character character){
         if(character.getName()!="") name = character.getName();
         if(character.getAlignment()!="") alignment = character.getAlignment();
         if(character.getRaceName()!="") raceName = character.getRaceName();
         if(character.getClassName()!="") className = character.getClassName();
-    } 
+        if(character.getImage()!="") image = character.getImage();
+        if(character.getDescription()!="") description = character.getDescription();
+        
+    }
 }
