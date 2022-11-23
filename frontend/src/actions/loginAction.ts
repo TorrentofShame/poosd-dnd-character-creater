@@ -16,10 +16,11 @@ const loginAction: ActionFunction = async ({request}) => {
     }
     
 
-    var requestOptions : any = {
+    var requestOptions : RequestInit = {
       method: 'GET',
       headers: myHeaders,
-      redirect: 'follow'
+      redirect: 'follow',
+      credentials: 'include'
     };
 
     await fetch("https://poosdapi.torrentofshame.com/login", requestOptions)

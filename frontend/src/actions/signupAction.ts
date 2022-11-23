@@ -19,7 +19,8 @@ const signupAction: ActionFunction = async ({request}) => {
     method: 'POST',
     headers: myHeaders,
     body: raw,
-    redirect: 'follow'
+    redirect: 'follow',
+    credentials: 'include'
   };
 
   await fetch("https://poosdapi.torrentofshame.com/register", requestOptions)

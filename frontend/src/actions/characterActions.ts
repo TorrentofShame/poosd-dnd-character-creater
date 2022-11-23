@@ -19,7 +19,8 @@ export const createCharacter = async () => {
       method: 'POST',
       headers: myHeaders,
       body: raw,
-      redirect: 'follow'
+      redirect: 'follow',
+      credentials: 'include'
     };
 
     await fetch("https://poosdapi.torrentofshame.com/characters", requestOptions)
@@ -55,7 +56,8 @@ export const editAction: ActionFunction = async({request}) => {
       method: 'PUT',
       headers: myHeaders,
       body: raw,
-      redirect: 'follow'
+      redirect: 'follow',
+      credentials: 'include'
     };
 
     await fetch("https://poosdapi.torrentofshame.com/characters", requestOptions)
