@@ -22,7 +22,7 @@ const loginAction: ActionFunction = async ({request}) => {
       redirect: 'follow'
     };
 
-    await fetch("http://localhost:8080/login", requestOptions)
+    await fetch("https://poosdapi.torrentofshame.com/login", requestOptions)
     .then(response => response.text())
     .then(result => {
       console.log(result);

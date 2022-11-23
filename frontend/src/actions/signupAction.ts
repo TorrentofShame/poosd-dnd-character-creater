@@ -22,7 +22,7 @@ const signupAction: ActionFunction = async ({request}) => {
     redirect: 'follow'
   };
 
-  await fetch("http://localhost:8080/register", requestOptions)
+  await fetch("https://poosdapi.torrentofshame.com/register", requestOptions)
     .then(response => response.text())
     .then(result => {console.log(result)})
     .catch(error => console.log('error', error));

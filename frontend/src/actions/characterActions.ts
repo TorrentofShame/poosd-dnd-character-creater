@@ -22,7 +22,7 @@ export const createCharacter = async () => {
       redirect: 'follow'
     };
 
-    await fetch("http://localhost:8080/characters", requestOptions)
+    await fetch("https://poosdapi.torrentofshame.com/characters", requestOptions)
       .then(response => response.text())
       .then(result => {
         console.log(result)
@@ -58,7 +58,7 @@ export const editAction: ActionFunction = async({request}) => {
       redirect: 'follow'
     };
 
-    await fetch("http://localhost:8080/characters", requestOptions)
+    await fetch("https://poosdapi.torrentofshame.com/characters", requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
