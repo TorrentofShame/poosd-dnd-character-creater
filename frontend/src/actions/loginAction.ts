@@ -19,8 +19,7 @@ const loginAction: ActionFunction = async ({request}) => {
     var requestOptions : RequestInit = {
       method: 'GET',
       headers: myHeaders,
-      redirect: 'follow',
-      credentials: 'include'
+      mode: 'no-cors',
     };
 
     await fetch("https://poosdapi.torrentofshame.com/login", requestOptions)
