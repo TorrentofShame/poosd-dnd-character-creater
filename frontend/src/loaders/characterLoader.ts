@@ -16,7 +16,7 @@ const characterLoader = async ({params, request}: LoaderFunctionArgs): Promise<C
       headers: myHeaders,
     };
     
-    await fetch("http://localhost:8080/characters", requestOptions)
+    await fetch("https://poosdapi.torrentofshame.com/characters", requestOptions)
       .then(response => response.text())
       .then(result => {
         data = JSON.parse(result);

@@ -16,13 +16,13 @@ const loginAction: ActionFunction = async ({request}) => {
     }
     
 
-    var requestOptions : any = {
+    var requestOptions : RequestInit = {
       method: 'GET',
       headers: myHeaders,
-      redirect: 'follow'
+      mode: 'no-cors',
     };
 
-    await fetch("http://localhost:8080/login", requestOptions)
+    await fetch("https://poosdapi.torrentofshame.com/login", requestOptions)
     .then(response => response.text())
     .then(result => {
       console.log(result);
