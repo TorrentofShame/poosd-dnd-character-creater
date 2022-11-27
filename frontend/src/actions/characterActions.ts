@@ -1,4 +1,5 @@
 import {  ActionFunction, redirect } from "react-router-dom";
+import { address } from "../API/address";
 const id = localStorage.getItem("id");
 const password = localStorage.getItem("password");
 export const createCharacter = async () => {
@@ -23,7 +24,7 @@ export const createCharacter = async () => {
       credentials: 'include'
     };
 
-    await fetch("https://poosdapi.torrentofshame.com/characters", requestOptions)
+    await fetch(`${address}/characters`, requestOptions)
       .then(response => response.text())
       .then(result => {
         console.log(result)
@@ -35,7 +36,10 @@ export const createCharacter = async () => {
   console.log(characterId)
   return redirect(`/app/characters/${characterId}/edit`)
 };
-
+export const selectAction: ActionFunction = async({params, request}) => {
+  const {characterId} = params as {characterId: string};
+  localStorage.setItem("characterId", characterId);
+}
 export const editAction: ActionFunction = async({request}) => {
   const formData = await request.formData();
   const character = Object.fromEntries(formData);

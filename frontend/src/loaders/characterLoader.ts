@@ -1,6 +1,6 @@
 import { LoaderFunctionArgs } from "react-router-dom";
 import { CharacterCardProps } from "../molecules/CharacterCard";
-
+import { address } from "../API/address";
 // WIP: use api??
 const characterLoader = async ({params, request}: LoaderFunctionArgs): Promise<CharacterCardProps> => {
   let data : any[] = [];
@@ -16,7 +16,7 @@ const characterLoader = async ({params, request}: LoaderFunctionArgs): Promise<C
       headers: myHeaders,
     };
     
-    await fetch("https://poosdapi.torrentofshame.com/characters", requestOptions)
+    await fetch(`${address}/characters`, requestOptions)
       .then(response => response.text())
       .then(result => {
         data = JSON.parse(result);

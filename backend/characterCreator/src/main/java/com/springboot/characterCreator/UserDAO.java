@@ -11,14 +11,11 @@ import org.springframework.stereotype.Repository;
 public class UserDAO {
     @Autowired
     private MongoTemplate mongoTemplate;
-    private User findUserById(final String id){
-        try{
-            final User foundUser = mongoTemplate.findById(id, User.class); //looks for user with matching ID in mongoDB
-            return foundUser;
-        }catch(Exception name){
-            System.out.println(name);
-            return null;
-        }
+    public User findUserById(final String id){
+        final User foundUser = mongoTemplate.findById(id, User.class); //looks for user with matching ID in mongoDB
+        if(foundUser==null) System.out.println("user "+id+" was not found");
+        return foundUser;
+        
     }
     public int addCharacter(User user){
         final User foundUser = findUserById(user.getId());
@@ -48,6 +45,9 @@ public class UserDAO {
             return ""+id;  //accessToken
         }
         return "password does not match";
+    }
+    public boolean isUserDM(final User user){
+        return user.isUserDM();
     }
     public String register(User user){
         /*

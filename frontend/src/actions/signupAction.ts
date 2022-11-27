@@ -1,5 +1,5 @@
 import { ActionFunction, redirect } from "react-router-dom";
-
+import { address } from "../API/address";
 const signupAction: ActionFunction = async ({request}) => {
   const formData = await request.formData();
   console.debug('signing in!', Object.fromEntries(formData));
@@ -23,7 +23,7 @@ const signupAction: ActionFunction = async ({request}) => {
     credentials: 'include'
   };
 
-  await fetch("https://poosdapi.torrentofshame.com/register", requestOptions)
+  await fetch(`${address}/register`, requestOptions)
     .then(response => response.text())
     .then(result => {console.log(result)})
     .catch(error => console.log('error', error));

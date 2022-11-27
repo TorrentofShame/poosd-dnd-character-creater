@@ -12,6 +12,7 @@ public class User {
     private String password;
     private String username; //could probably remove username since id does the same thing
     private List<Character> characters;
+    private boolean isUserDM;
     public String getUsername(){
         return username;
     }
@@ -23,6 +24,13 @@ public class User {
     }
     public List<Character> getCharacters(){
         return characters;
+    }
+    public Character getCharacter(int i){
+        try{
+            return characters.get(i);
+        }
+        catch(Exception name){}
+        return null;
     }
     public int addCharacter(){
         if(characters==null){
@@ -43,6 +51,9 @@ public class User {
             }
         }
         return "character does not exist";
+    }
+    public boolean isUserDM(){
+        return true;
     }
     public String toString(){
         return "id:"+id+"\n"+"username:"+username+"\n"+"password:"+password+"\n";

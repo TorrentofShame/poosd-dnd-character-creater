@@ -51,4 +51,13 @@ public class Character {
         if(character.getDescription()!="") description = character.getDescription();
         
     }
+    public boolean equals(Character character){
+        if(character.getName()!=name) return false;
+        if(character.getAlignment()!=alignment) return false;
+        if(character.getRaceName()!=raceName) return false;
+        if(character.getClassName()!=className) return false;
+        if(character.getImage()!=image) return false;
+        if(character.getDescription()!=description) return false;
+        return true;
+    }
 }
