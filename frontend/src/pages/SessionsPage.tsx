@@ -11,7 +11,7 @@ const Dashboard = (): JSX.Element => {
       <Container fluid>
         <Header>Sessions</Header>
         <Form method="post">
-          <Button>New Session</Button>
+          <Button>New Session/Delete Session</Button>
         </Form>
       </Container>
       <Divider />

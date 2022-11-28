@@ -24,8 +24,10 @@ public class SessionDAO {
     }
     public String createSession(User user){
         if(userDAO.isUserDM(user)==true){
-            if(findSessionById(user.getId())!=null){
-                return "User is already hosting a session";
+            final Session foundSession = findSessionById(user.getId());
+            if(foundSession!=null){
+                mongoTemplate.remove(foundSession);
+                return "deleteing session";
             }
             final Session newSession = new Session(user.getId(), user);
             mongoTemplate.save(newSession);
@@ -46,5 +48,11 @@ public class SessionDAO {
     }
     public List<Session> getAllSessions(){
         return mongoTemplate.findAll(Session.class);
+    }
+    public String deleteSession(final User user){
+        final Session foundSession = findSessionById(user.getId());
+        if(foundSession==null) return "session not found";
+        mongoTemplate.remove(user);
+        return "session removed";
     }
 }

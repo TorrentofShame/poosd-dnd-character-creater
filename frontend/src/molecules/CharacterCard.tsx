@@ -10,6 +10,18 @@ export type CharacterCardProps = {
   alignment: string;
   raceName: string;
   className: string;
+  strength: number;
+  dexterity: number;
+  constitution: number;
+  intelligence: number;
+  wisdom: number;
+  charisma: number;
+  armorClass: number;
+  speed: number;
+  initiative: number;
+  spellSave: number;
+  passivePerception: number;
+  spellAttack: number;
   description?: string;
 };
 
@@ -20,7 +32,20 @@ const CharacterCard = ({
   alignment,
   raceName,
   className,
+  strength,
+  dexterity,
+  constitution,
+  intelligence,
+  wisdom,
+  charisma,
+  armorClass,
+  speed,
+  initiative,
+  spellSave,
+  passivePerception,
+  spellAttack,
   description,
+  
 }: CharacterCardProps): JSX.Element => {
   return (
     <Card as={Link} to={`/app/characters/${id}`}>
