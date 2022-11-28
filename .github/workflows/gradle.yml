@@ -55,10 +55,8 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push
-        uses: docker/build-push-action@v3
-        with:
-          context: ${{env.working-directory}}
-          build-args: JAR_FILE=build/libs/characterCreator-\*-SNAPSHOT.jar
-          push: true
-          tags: torrentofshame/poosd-backend:latest
+      - name: build and push dockerfile
+        working-directory: ${{env.working-directory}}
+        run: |
+          docker build . -t torrentofshame/poosd-backend:latest --build-arg JAR_FILE=build/libs/characterCreator-\*-SNAPSHOT.jar
+          docker push torrentofshame/poosd-backend:latest
