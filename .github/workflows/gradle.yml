@@ -52,6 +52,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ${{env.working-directory}}
-          build-args: JAR_FILE=build/libs/\*.jar
+          build-args: JAR_FILE=build/libs/characterCreator-\*-SNAPSHOT.jar
           push: true
           tags: torrentofshame/poosd-backend:latest
