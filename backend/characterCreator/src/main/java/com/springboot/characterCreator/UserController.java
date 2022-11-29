@@ -22,7 +22,6 @@ public class UserController {
     */
     @Autowired
     private UserDAO userDAO;
-
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/register")
     public String signUp(@RequestBody final User user){ //takes User value from the API endpoint request body
@@ -48,6 +47,7 @@ public class UserController {
     public String editCharacter(@RequestBody final editEndpoint endpoint){
         final Character character = endpoint.getCharacter(); 
         final User user = endpoint.getUser();
+        System.out.println(user.getId());
         return userDAO.editCharacter(user, character);
     }
 
