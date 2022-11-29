@@ -35,7 +35,7 @@ const loginAction: ActionFunction = async ({request}) => {
   }
   catch(err){
   }
-  redirect("/app");
+  return redirect("/app");
 };
  
 export default loginAction;
