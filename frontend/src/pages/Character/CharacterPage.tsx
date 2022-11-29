@@ -11,6 +11,9 @@ const CharacterPage = (): JSX.Element => {
       <Form method="post">
           <Button>Select Character</Button>
       </Form>
+    <Button as={Link} to="./edit">
+      Edit Character
+    </Button>
     {Object.entries(character).map(([k,v]) => {
         return <div>{k} : {v}</div>
       })
