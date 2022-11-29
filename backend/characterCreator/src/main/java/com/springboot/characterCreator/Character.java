@@ -35,7 +35,7 @@ public class Character {
         this.alignment = "chaotic evil";
         this.raceName = "apeling";
         this.className = "rogue";
-        this.image = "https://discovery.sndimg.com/content/dam/images/discovery/fullset/2021/4/30/GettyImages-1189192456.jpg.rend.hgtvcom.406.406.suffix/1619849704543.jpeg";
+        this.image = "https://discovery.sndimg.com/content/dam/images/discovery/fullset/2021/4/30/GettyImages0189192456.jpg.rend.hgtvcom.406.406.suffix/1619849704543.jpeg";
         this.description = "monkey denied his bannana";
     }
     public Character(){
@@ -101,24 +101,24 @@ public class Character {
         return description;
     }
     public void setCharacter(Character character){
-        if(character.getName()!="") name = character.getName();
-        if(character.getAlignment()!="") alignment = character.getAlignment();
-        if(character.getRaceName()!="") raceName = character.getRaceName();
-        if(character.getClassName()!="") className = character.getClassName();
-        if(character.getImage()!="") image = character.getImage();
-        if(character.getDescription()!="") description = character.getDescription();
+        if(character.getName()!=null&&character.getName()!="") name = character.getName();
+        if(character.getAlignment()!=null&&character.getAlignment()!="") alignment = character.getAlignment();
+        if(character.getRaceName()!=null&&character.getRaceName()!="") raceName = character.getRaceName();
+        if(character.getClassName()!=null&&character.getClassName()!="") className = character.getClassName();
+        if(character.getImage()!=null&&character.getImage()!="") image = character.getImage();
+        if(character.getDescription()!=null&&character.getDescription()!="") description = character.getDescription();
     
-        if(character.getStrength()!=-1) strength = character.getStrength();
-        if(character.getDexterity()!=-1) dexterity = character.getDexterity();
-        if(character.getConstitution()!=-1) constitution = character.getConstitution();
-        if(character.getCharisma()!=-1) charisma = character.getCharisma();
-        if(character.getIntelligence()!=-1) strength = character.getIntelligence();
-        if(character.getWisdom()!=-1) strength = character.getWisdom();
-        if(character.getArmorClass()!=-1) armorClass = character.getArmorClass();
-        if(character.getSpeed()!=-1) speed = character.getSpeed();
-        if(character.getSpellSave()!=-1) spellSave = character.getSpellSave();
-        if(character.getPassivePerception()!=-1) passivePerception = character.getPassivePerception();
-        if(character.getSpellAttack()!=-1) spellAttack = character.getSpellAttack();
+        if(character.getStrength()!=0) strength = character.getStrength();
+        if(character.getDexterity()!=0) dexterity = character.getDexterity();
+        if(character.getConstitution()!=0) constitution = character.getConstitution();
+        if(character.getCharisma()!=0) charisma = character.getCharisma();
+        if(character.getIntelligence()!=0) strength = character.getIntelligence();
+        if(character.getWisdom()!=0) strength = character.getWisdom();
+        if(character.getArmorClass()!=0) armorClass = character.getArmorClass();
+        if(character.getSpeed()!=0) speed = character.getSpeed();
+        if(character.getSpellSave()!=0) spellSave = character.getSpellSave();
+        if(character.getPassivePerception()!=0) passivePerception = character.getPassivePerception();
+        if(character.getSpellAttack()!=0) spellAttack = character.getSpellAttack();
         
     }
 }

@@ -1,5 +1,6 @@
 import {  ActionFunction, LoaderFunctionArgs, redirect } from "react-router-dom";
 import { address } from "../API/address";
+import { SessionCardProp } from "../molecules/SessionCard";
 
 export const createSession = async () => {
   
@@ -64,4 +65,58 @@ export const joinSession = async ({params, request}: LoaderFunctionArgs) => {
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
     }
+}
+export const editSessionCharacter = async ({params, request}: LoaderFunctionArgs) => {
+  let data : any[] = [];
+  var requestOptions : any = {
+      method: 'GET',
+      redirect: 'follow'
+  };
+        
+  await fetch(`${address}/matchmaking`, requestOptions)
+      .then(response => response.text())
+      .then(result => {
+          data = JSON.parse(result)
+      })
+      .catch(error => console.log('error', error));
+  const {sessionId} = params as {sessionId: string};
+
+  console.log(sessionId)
+  let sel : SessionCardProp  = data.find(session => session.id == sessionId);
+  const {userId} = params as {userId: string};
+  if(sel.players!=undefined){
+    const player = sel.players.find(p  => p.id==userId)
+    if(player==undefined){
+      return ;
+    }
+    const formData = await request.formData();
+    const character = Object.fromEntries(formData);
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      "character": character,
+      "user": {
+        "id": player.id,
+        "username": player.id,
+        "password": player.password
+      }
+    });
+
+    var requestOptions : any = {
+      method: 'PUT',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow',
+      credentials: 'include'
+    };
+
+    await fetch(`${address}/characters`, requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+  
+  }
+  return redirect('/app');
+
 }

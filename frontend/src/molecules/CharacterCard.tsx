@@ -10,6 +10,7 @@ export type CharacterCardProps = {
   alignment: string;
   raceName: string;
   className: string;
+  description?: string;
   strength: number;
   dexterity: number;
   constitution: number;
@@ -22,7 +23,8 @@ export type CharacterCardProps = {
   spellSave: number;
   passivePerception: number;
   spellAttack: number;
-  description?: string;
+  
+  link?: string;
 };
 
 const CharacterCard = ({
@@ -32,6 +34,7 @@ const CharacterCard = ({
   alignment,
   raceName,
   className,
+  description,
   strength,
   dexterity,
   constitution,
@@ -44,11 +47,10 @@ const CharacterCard = ({
   spellSave,
   passivePerception,
   spellAttack,
-  description,
-  
+  link
 }: CharacterCardProps): JSX.Element => {
   return (
-    <Card as={Link} to={`/app/characters/${id}`}>
+    <Card as={Link} to={link}>
       <Image src={image} wrapped ui={false} />
       <Card.Content>
         <Card.Header>{name}</Card.Header>

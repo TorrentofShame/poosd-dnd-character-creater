@@ -14,13 +14,16 @@ import Dashboard from './pages/Dashboard';
 import HomePage from './pages/HomePage';
 import {signupAction, loginAction, createCharacter, editAction, selectAction} from './actions';
 import { characterLoader, dashboardLoader } from './loaders';
-import CharacterPage from './pages/CharacterPage';
-import EditCharacterPage from './pages/EditCharacterPage';
+import CharacterPage from './pages/Character/CharacterPage';
+import EditCharacterPage from './pages/Character/EditCharacterPage';
 import sessionsLoader from './loaders/sessionsLoader';
-import SessionsPage from './pages/SessionsPage';
-import { createSession, joinSession } from './actions/sessionActions';
-import sessionLoader from './loaders/sessionLoader';
-import SessionPage from './pages/SessionPage';
+import SessionsPage from './pages/Session/SessionsPage';
+import { createSession, editSessionCharacter, joinSession } from './actions/sessionActions';
+import {sessionLoader, characterSessionLoader} from './loaders/sessionLoader';
+import SessionPage from './pages/Session/SessionPage';
+import hostLoader from './loaders/hostLoader';
+import SessionCharacterPage from './pages/Session/SessionCharacterPage';
+import HostPage from './pages/Session/HostPage';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -80,6 +83,24 @@ export const router = createBrowserRouter(
             action={joinSession}
             element={<SessionPage />}
           />
+          <Route
+            path='sessions/:sessionId/host'
+            loader={hostLoader}
+            element={<HostPage />}
+          />
+          <Route
+            path='sessions/:sessionId/host/:userId'
+            loader={characterSessionLoader}
+            action={joinSession}
+            element={<SessionCharacterPage />}
+          />
+          <Route
+            path='sessions/:sessionId/host/:userId/edit'
+            loader={characterSessionLoader}
+            action={editSessionCharacter}
+            element={<EditCharacterPage />}
+          />
+          
         </Route>
       </Route>
     </Route>

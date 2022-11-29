@@ -48,7 +48,6 @@ public class UserController {
     public String editCharacter(@RequestBody final editEndpoint endpoint){
         final Character character = endpoint.getCharacter(); 
         final User user = endpoint.getUser();
-        System.out.println(user.getId());
         return userDAO.editCharacter(user, character);
     }
 

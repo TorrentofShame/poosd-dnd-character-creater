@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, useLoaderData } from 'react-router-dom';
+import { Form, redirect, useLoaderData } from 'react-router-dom';
 import { Button, Container, Divider, Header } from 'semantic-ui-react';
 import { CharacterCardProps } from '../molecules/CharacterCard';
 import CharacterCardGroup from '../organisms/CharacterCardGroup';

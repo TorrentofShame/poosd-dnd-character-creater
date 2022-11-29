@@ -25,7 +25,13 @@ const dashboardLoader = async ({params, request}: LoaderFunctionArgs): Promise<C
       })
       .catch(error => console.log('error', error));
   }
-  return data;
+  let newData = data.map(character => {
+    return {
+      ...character,
+      link: `characters/${character.id}`
+    }
+  })
+  return newData;
 };
 
 export default dashboardLoader;

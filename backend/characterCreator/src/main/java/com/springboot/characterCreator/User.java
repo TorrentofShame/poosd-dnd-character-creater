@@ -42,15 +42,9 @@ public class User {
     }
     public String editCharacter(Character character){
         int id = character.getId(); //id of character that is being replaced
-        for(int i=0;i<characters.size();i++){
-            Character currentCharacter = characters.get(i);
-            if(id==currentCharacter.getId()){
-                System.out.println(currentCharacter.getId());
-                currentCharacter.setCharacter(character);
-                return "change made";
-            }
-        }
-        return "character does not exist";
+        Character currentCharacter = characters.get(id);
+        currentCharacter.setCharacter(character);
+        return "change made";
     }
     public boolean isUserDM(){
         return true;

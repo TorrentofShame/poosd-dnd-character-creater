@@ -4,11 +4,16 @@ import { Card, Image } from 'semantic-ui-react';
 import { CharacterCardProps } from './CharacterCard';
 
 // WIP: Change types to what they should be based on api!!!
+export type user = {
+  id: string;
+  username: string;
+  password: string
+}
 export type SessionCardProp = {
   image?: string;
   id: string;
   name: string;
-  players?: any[];
+  players?: user[];
   characters?: CharacterCardProps[];
   description?: string;
 };
