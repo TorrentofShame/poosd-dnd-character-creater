@@ -37,12 +37,12 @@ public class Character {
     private int charisma;
 
     // other stats
-    private int armorClass;
-    private int speed;
-    private int initiative;
-    private int spellSave;
-    private int passivePerception;
-    private int spellAttack;
+    // private int armorClass;
+    // private int speed;
+    // private int initiative;
+    // private int spellSave;
+    // private int passivePerception;
+    // private int spellAttack;
 
     // not implemented
     // level, experience, renown & rank, alignment, race, background

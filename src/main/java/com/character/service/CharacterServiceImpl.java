@@ -63,6 +63,17 @@ public class CharacterServiceImpl implements CharacterService {
                 throw new CharacterCollectionException(CharacterCollectionException.CharacterAlreadyExists());
 
             Character charToUpdate = charWithId.get();
+            charToUpdate.setName(charUpdate.getName() != null ? charUpdate.getName() : charToUpdate.getName());
+            charToUpdate.setBelongsToUser(charUpdate.getBelongsToUser() != 0 ? charUpdate.getBelongsToUser() : charToUpdate.getBelongsToUser());
+            charToUpdate.setStrength(charUpdate.getStrength() != 0 ? charUpdate.getStrength() : charToUpdate.getStrength());
+            charToUpdate.setDexterity(charUpdate.getDexterity() != 0 ? charUpdate.getDexterity() : charToUpdate.getDexterity());
+            charToUpdate.setConstitution(charUpdate.getConstitution() != 0 ? charUpdate.getConstitution() : charToUpdate.getConstitution());
+            charToUpdate.setIntelligence(charUpdate.getIntelligence() != 0 ? charUpdate.getIntelligence() : charToUpdate.getIntelligence());
+            charToUpdate.setWisdom(charUpdate.getWisdom() != 0 ? charUpdate.getWisdom() : charToUpdate.getWisdom());
+            charToUpdate.setCharisma(charUpdate.getCharisma() != 0 ? charUpdate.getCharisma() : charToUpdate.getCharisma());
+
+            /*
+            Character charToUpdate = charWithId.get();
             charToUpdate.setName(charUpdate.getName());
             charToUpdate.setBelongsToUser(charUpdate.getBelongsToUser());
 
@@ -75,12 +86,14 @@ public class CharacterServiceImpl implements CharacterService {
             charToUpdate.setCharisma(charUpdate.getCharisma());
 
             // update other stats
-            charToUpdate.setArmorClass(charUpdate.getArmorClass());
-            charToUpdate.setSpeed(charUpdate.getSpeed());
-            charToUpdate.setInitiative(charUpdate.getInitiative());
-            charToUpdate.setSpellSave(charUpdate.getSpellSave());
-            charToUpdate.setPassivePerception(charUpdate.getPassivePerception());
-            charToUpdate.setSpellAttack(charUpdate.getSpellAttack());
+            // charToUpdate.setArmorClass(charUpdate.getArmorClass());
+            // charToUpdate.setSpeed(charUpdate.getSpeed());
+            // charToUpdate.setInitiative(charUpdate.getInitiative());
+            // charToUpdate.setSpellSave(charUpdate.getSpellSave());
+            // charToUpdate.setPassivePerception(charUpdate.getPassivePerception());
+            // charToUpdate.setSpellAttack(charUpdate.getSpellAttack());
+
+             */
 
             charToUpdate.setUpdatedAt(new Date(System.currentTimeMillis()));
             charRepo.save(charToUpdate);
@@ -98,6 +111,4 @@ public class CharacterServiceImpl implements CharacterService {
         else
             charRepo.deleteById(id);
     }
-
-
 }
