@@ -11,7 +11,7 @@ public class WebMvcConfig implements WebMvcConfigurer{
     public void addCorsMappings(CorsRegistry registry){
         registry.addMapping("/**")
             .allowedMethods("*")
-            .allowedOrigins("https://poosd.torrentofshame.com/")
+            .allowedOriginPatterns("https://*.torrentofshame.com")
             .allowedHeaders("*")
             .allowCredentials(true)
             .maxAge(-1);

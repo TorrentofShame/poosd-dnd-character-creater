@@ -25,17 +25,17 @@ public class SessionController {
     @Autowired
     private SessionDAO sessionDAO;
 
-    @CrossOrigin(origins = "http://localhost:3000")
+//    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/matchmaking")
     public String createSession(@RequestBody final User user){ //takes User value from the API endpoint request body
         return sessionDAO.createSession(user);  //passes the value to a function int userDAO
     }
-    @CrossOrigin(origins = "http://localhost:3000")
+ //   @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/matchmaking")
     public List<Session> getAllSessions(){
         return sessionDAO.getAllSessions();
     }
-    @CrossOrigin(origins = "http://localhost:3000")
+  //  @CrossOrigin(origins = "http://localhost:3000")
     @PutMapping("/matchmaking")
     public String joinSession(@RequestBody final JoinSessionEndpoint endpoint){ 
         final User user = endpoint.getUser();

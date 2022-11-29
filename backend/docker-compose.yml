@@ -1,0 +1,16 @@
+version: '3'
+services:
+  backend:
+    image: torrentofshame/poosd-backend:latest
+    container_name: backend
+    depends_on:
+      - mongo
+    ports:
+      - "8080:8080"
+  mongo:
+    container_name: mongo
+    image: mongo
+  #  cloudflared:
+  #    container_name: cloudflared
+  #    image: cloudflare/cloudflared:latest
+  #    command: tunnel --no-autoupdate run --token eyJhIjoiZTk0ZDFlNzY1ZTlhYzFlNmY5YWUwMzMyZGZiZWNlYzciLCJ0IjoiYzk2YzdkMGMtNTg1ZC00M2Q1LTlmOWQtZDA5YzQ4ZWM4MTY0IiwicyI6Ik4yVTVPVFpoTVdJdFpUUTBZeTAwWW1OakxXSXdZVFF0WkdJMU9XTTNOekEzTXpRNCJ9
