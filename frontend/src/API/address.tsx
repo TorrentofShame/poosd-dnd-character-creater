@@ -1,1 +1,1 @@
-export const address = "https://poosdapi.torrentofshame.com/"
+export const address = "https://poosdapi.torrentofshame.com"
