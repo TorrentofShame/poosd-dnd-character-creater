@@ -63,7 +63,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: build and push dockerfile
-        working-directory: ${{env.working-directory}}
+        working-directory: ./backend
         run: |
-          docker build . -t torrentofshame/poosd-backend:latest --build-arg JAR_FILE=build/libs/characterCreator-\*-SNAPSHOT.jar
+          docker build . -t torrentofshame/poosd-backend:latest --build-arg JAR_FILE=characterCreator/build/libs/characterCreator-\*-SNAPSHOT.jar
           docker push torrentofshame/poosd-backend:latest
