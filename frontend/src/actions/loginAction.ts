@@ -26,7 +26,6 @@ const loginAction: ActionFunction = async ({request}) => {
           console.log(password)
           localStorage.setItem("password", password);
           localStorage.setItem("id", result); //authenticate here
-          redirect("/app");
         })
       .catch(error => {
         console.log(error);
@@ -35,7 +34,7 @@ const loginAction: ActionFunction = async ({request}) => {
   }
   catch(err){
   }
-  
+  redirect("/app");
 };
  
 export default loginAction;
